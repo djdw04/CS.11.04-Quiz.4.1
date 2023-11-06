@@ -1,8 +1,30 @@
 public class Main {
+    public static int numberOfVowels(String one) {
+        int count = 0;
+        String vowels = "aeiouAEIOU";
+        for(int i = 0; i < one.length(); i++) {
+            char c = one.charAt(i);
+            if(vowels.contains(Character.toString(c))) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+
 
     /** 1. Write a method called numberOfVowels that returns the number of vowels in a string.
      Consider a, e, i, o, u as vowels. **/
-    
+
+    public static int notDivisibleBy235(int i) {
+        int count = 0;
+        for (int num = 1; num <= i; num++) {
+            if ((num % 2 != 0) && (num % 3 != 0) && (num % 5 != 0)) {
+                count++;
+            }
+        }
+        return count;
+    }
 
     /** 2. Write a method called notDivisibleBy235 that finds the number of natural numbers not exceeding N
      and not divisible by any of the numbers [2, 3, 5].
@@ -15,7 +37,19 @@ public class Main {
      5 - divides integer by 5
      Answer: 1 (only one number doesn't divide integer by any of 2, 3, 5) **/
 
+    public static String camelCaseMe(String two) {
+        String[] words = two.split("[-_]");
+        String camelCase = words[0];
 
+        for (int i = 1; i < words.length; i++) {
+            String word = words[i];
+            if (!word.isEmpty()) {
+                camelCase += Character.toUpperCase(word.charAt(0)) + word.substring(1).toLowerCase();
+            }
+        }
+
+        return camelCase;
+    }
     /** 3. Write a method called camelCaseMe so that it converts dash/underscore delimited words into camel casing.
      * The first word within the output should be capitalized only if the original word was capitalized
      * (known as Upper Camel Case, also often referred to as Pascal case).
